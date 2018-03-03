@@ -1,0 +1,60 @@
+{
+  "name": "react-graphql-examples",
+  "version": "0.1.0",
+  "description": "Examples of React with GraphQL",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --open",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nghuudan/react-graphql-examples.git"
+  },
+  "keywords": [
+    "examples",
+    "graphql",
+    "react"
+  ],
+  "author": "Dan Nguyen <nghuudan@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nghuudan/react-graphql-examples/issues"
+  },
+  "homepage": "https://github.com/nghuudan/react-graphql-examples#readme",
+  "devDependencies": {
+    "ajv": "^6.2.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.3",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.18",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.18.1",
+    "eslint-plugin-react": "^7.7.0",
+    "html-webpack-plugin": "^3.0.4",
+    "jest": "^22.4.2",
+    "webpack": "^4.0.1",
+    "webpack-cli": "^2.0.10",
+    "webpack-dev-server": "^3.1.0"
+  },
+  "dependencies": {
+    "apollo-cache-inmemory": "^1.1.9",
+    "apollo-client": "^2.2.5",
+    "apollo-link-http": "^1.5.2",
+    "apollo-server-express": "^1.3.2",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "graphql": "^0.13.1",
+    "graphql-tag": "^2.8.0",
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0",
+    "react-apollo": "^2.0.4",
+    "react-dom": "^16.2.0",
+    "unfetch": "^3.0.0"
+  }
+}
