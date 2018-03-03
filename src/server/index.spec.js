@@ -13,15 +13,6 @@ jest.mock('body-parser', () => (
 
 jest.mock('cors');
 
-jest.mock('express', () => jest.fn(() => (
-  {
-    get: jest.fn(),
-    listen: jest.fn(),
-    post: jest.fn(),
-    use: jest.fn()
-  }
-)));
-
 jest.mock('apollo-server-express', () => (
   {
     graphqlExpress: jest.fn()
@@ -35,6 +26,10 @@ describe('Server', () => {
 
   it('should call use with cors', () => {
     expect(server.use).toHaveBeenCalledWith(cors());
+  });
+
+  it('should call get with * and express.static', () => {
+    expect(server.get).toHaveBeenCalledWith('*', express.static());
   });
 
   it('should call get with /health', () => {

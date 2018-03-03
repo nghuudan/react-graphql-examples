@@ -1,15 +1,12 @@
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpackNodeExternals = require('webpack-node-externals');
 
-module.exports = {
-  devServer: {
-    port: 3333
-  },
-
+const clientConfig = {
   devtool: 'source-map',
 
-  entry: path.resolve('index'),
+  entry: path.join(__dirname, 'src', 'client', 'index'),
 
   module: {
     rules: [
@@ -40,8 +37,8 @@ module.exports = {
   },
 
   output: {
-    filename: '[name].[chunkhash].js',
-    path: path.resolve('dist')
+    filename: '[name].[chunkhash].client.js',
+    path: path.resolve('dist', 'public')
   },
 
   plugins: [
@@ -57,3 +54,45 @@ module.exports = {
 
   target: 'web'
 };
+
+const serverConfig = {
+  entry: path.join(__dirname, 'src', 'server', 'index'),
+
+  externals: [webpackNodeExternals()],
+
+  module: {
+    rules: [
+      {
+        exclude: /node_modules/,
+        test: /\.jsx?$/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ['env', {
+                targets: {
+                  node: ['8.9.4']
+                }
+              }],
+              'react',
+              'stage-0'
+            ]
+          }
+        }
+      }
+    ]
+  },
+
+  output: {
+    filename: '[name].server.js',
+    path: path.resolve('dist')
+  },
+
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
+
+  target: 'node'
+};
+
+module.exports = [clientConfig, serverConfig];
