@@ -12,7 +12,7 @@ server.use(cors());
 server.use(morgan('dev'));
 server.get('*', express.static(path.join('dist', 'public')));
 server.get('/health', health);
-server.get('/graphiql', graphiqlExpress({ endpoint: '/graphql' }));
+server.get('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 server.post('/graphql', bodyParser.json(), graphqlExpress({ schema }));
 server.listen(4444);
 
