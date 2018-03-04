@@ -1,0 +1,6 @@
+query ColorListQuery {
+  colorList {
+    id
+    name
+  }
+}

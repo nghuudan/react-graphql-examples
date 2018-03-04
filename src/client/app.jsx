@@ -1,11 +1,11 @@
 import React from 'react';
 import { ApolloProvider } from 'react-apollo';
 import client from './graphql/graphql-client';
-import { Hello } from './components';
+import { List } from './components';
 
 const App = () => (
   <ApolloProvider client={client}>
-    <Hello />
+    <List />
   </ApolloProvider>
 );
 
