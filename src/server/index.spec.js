@@ -1,7 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
-import { graphqlExpress } from 'apollo-server-express';
+import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 import health from './health';
 import server from '.';
 
@@ -15,7 +15,8 @@ jest.mock('cors');
 
 jest.mock('apollo-server-express', () => (
   {
-    graphqlExpress: jest.fn()
+    graphqlExpress: jest.fn(),
+    graphiqlExpress: jest.fn()
   }
 ));
 
@@ -34,6 +35,10 @@ describe('Server', () => {
 
   it('should call get with /health', () => {
     expect(server.get).toHaveBeenCalledWith('/health', health);
+  });
+
+  it('should call get with /graphiql and graphiqlExpress', () => {
+    expect(server.get).toHaveBeenCalledWith('/graphiql', graphiqlExpress());
   });
 
   it('should call post with /graphql', () => {
