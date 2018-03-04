@@ -1,7 +1,7 @@
 import React from 'react';
 import { ApolloProvider } from 'react-apollo';
 import client from './graphql/graphql-client';
-import Hello from './components/hello/hello';
+import { Hello } from './components';
 
 const App = () => (
   <ApolloProvider client={client}>

@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cors from 'cors';
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
+import errorHandler from './error-handler';
 import health from './health';
 import server from '.';
 
@@ -27,6 +28,10 @@ describe('Server', () => {
 
   it('should call use with cors', () => {
     expect(server.use).toHaveBeenCalledWith(cors());
+  });
+
+  it('should call use with errorHandler', () => {
+    expect(server.use).toHaveBeenCalledWith(errorHandler);
   });
 
   it('should call get with * and express.static', () => {

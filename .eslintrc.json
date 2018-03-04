@@ -6,7 +6,10 @@
     "jest": true,
     "node": true
   },
-  "extends": ["eslint:recommended", "plugin:react/recommended"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
   "parserOptions": {
     "ecmaFeatures": {
       "experimentalObjectRestSpread": true,
@@ -25,6 +28,9 @@
     "linebreak-style": [
       "warn",
       "unix"
+    ],
+    "no-console": [
+      "error", { "allow": ["error", "warn"] }
     ],
     "quotes": [
       "warn",
