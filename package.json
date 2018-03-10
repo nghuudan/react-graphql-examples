@@ -1,7 +1,7 @@
 {
   "name": "react-graphql-examples",
   "private": true,
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Examples of React with GraphQL",
   "main": "index.js",
   "scripts": {
