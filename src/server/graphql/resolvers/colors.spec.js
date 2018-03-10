@@ -1,4 +1,4 @@
-import { addColor, color, colorList, removeColor } from './colors';
+import { addColor, color, colorList, removeColor, updateColor } from './colors';
 
 describe('Colors', () => {
   it('should add a color', (done) => {
@@ -29,6 +29,29 @@ describe('Colors', () => {
         expect(c).toBe(undefined);
         done();
       });
+    });
+  });
+
+  it('should return a rejected promise when it cannot remove the color', (done) => {
+    return removeColor({}, { id: 99 }).catch((e) => {
+      expect(e).toBe('Cannot remove color: 99');
+      done();
+    });
+  });
+
+  it('should update a color by id', (done) => {
+    const newColor = { name: 'Purple' };
+    return updateColor({}, { id: 1 }, { color: newColor }).then((c) => {
+      expect(c.name).toBe(newColor.name);
+      done();
+    });
+  });
+
+  it('should return a rejected promise when it cannot update the color', (done) => {
+    const newColor = { name: 'Purple' };
+    return updateColor({}, { id: 99 }, { color: newColor }).catch((e) => {
+      expect(e).toBe('Cannot update color: 99');
+      done();
     });
   });
 });
