@@ -79,6 +79,11 @@ const serverConfig = {
             ]
           }
         }
+      },
+      {
+        exclude: /node_modules/,
+        test: /\.graphql|gql$/,
+        loaders: ['graphql-tag/loader']
       }
     ]
   },

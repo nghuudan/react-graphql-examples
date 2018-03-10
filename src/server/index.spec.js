@@ -13,13 +13,7 @@ jest.mock('body-parser', () => (
 ));
 
 jest.mock('cors');
-
-jest.mock('apollo-server-express', () => (
-  {
-    graphqlExpress: jest.fn(),
-    graphiqlExpress: jest.fn()
-  }
-));
+jest.mock('apollo-server-express');
 
 describe('Server', () => {
   it('should call express once', () => {
