@@ -5,8 +5,8 @@
   "description": "Examples of React with GraphQL",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --mode development",
-    "build:prod": "webpack --mode production",
+    "build": "npm run lint:fix && webpack --mode development",
+    "build:prod": "npm run lint && webpack --mode production",
     "lint": "eslint --ext js --ext jsx src",
     "lint:fix": "eslint --ext js --ext jsx --fix src",
     "start": "npm run build && node dist/main.server",
