@@ -1,11 +1,14 @@
 {
   "name": "react-graphql-examples",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Examples of React with GraphQL",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --mode development && node dist/main.server",
+    "build": "webpack --mode development",
+    "build:prod": "webpack --mode production",
+    "start": "npm run build && node dist/main.server",
+    "start:prod": "npm run build:prod && node dist/main.server",
     "test": "jest --coverage",
     "test:watch": "jest --watch"
   },
