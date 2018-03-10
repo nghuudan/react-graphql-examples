@@ -3,11 +3,7 @@ import { render } from 'react-dom';
 import App from './app';
 import '.';
 
-jest.mock('react-dom', () => (
-  {
-    render: jest.fn()
-  }
-));
+jest.mock('react-dom');
 
 describe('Client', () => {
   it('should call render once', () => {
