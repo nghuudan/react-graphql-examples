@@ -20,4 +20,5 @@ type Query {
 type Mutation {
   addColor(color: ColorInput!): Color
   removeColor(id: Int!): Int
+  updateColor(id: Int!, color: ColorInput!): Color
 }
